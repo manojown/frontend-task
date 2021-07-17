@@ -34,7 +34,7 @@ function Dashboard() {
 
 	};
 
-	// Delete single user for delete button
+	// Delete single user for delete
 	const deleteUser = (usersToDelete) => {
 		let fromMaindUserObject = users.filter((user) => {
 			return !usersToDelete.includes(user.id);
