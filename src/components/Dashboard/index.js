@@ -34,9 +34,11 @@ function Dashboard() {
 		setUsers(fromMaindUserObject);
 	};
 
+
+	// search by name, role and email
 	useEffect(() => {
 		let data = users.filter((user) => {
-			return user.name.toLowerCase().includes(search);
+			return  user.name.toLowerCase().includes(search) || user.email.toLowerCase().includes(search) || user.role.toLowerCase().includes(search)
 		});
 		setSearchSlice(data);
 	}, [search, users]);
@@ -67,7 +69,7 @@ function Dashboard() {
 
 	const onPageChange = (page) => {
 		let lastIndex = page * offSet + offSet;
-		if (searchSlice.length) {
+		if (search) {
 			setPaginateUser(searchSlice.slice(lastIndex - offSet, lastIndex));
 		} else {
 			setPaginateUser(users.slice(lastIndex - offSet, lastIndex));
@@ -87,7 +89,7 @@ function Dashboard() {
 		};
 		apiCall();
 	}, []);
-	
+
 	return (
 		<div className='pl3 pr3 pb2 center tc'>
 			<Search

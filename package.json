@@ -13,10 +13,15 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
+    "setup": "npm install && npm test",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "es-lint": "eslint --max-warnings 0 src/**/*.js src/**/*.jsx",
+    "lint": "npm run prettier && npm run es-lint",
+    "prettier": "prettier --check \"src/**/*.*\"",
+    "fix-code": "npm run prettier --write && npm run es-lint --fix"
   },
   "eslintConfig": {
     "extends": [

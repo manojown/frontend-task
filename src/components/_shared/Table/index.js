@@ -54,8 +54,9 @@ function Table({ users, inlineEdit, headers, children, deleteUser,selectUsers })
 				</td>
 			</tr>
 		);
-	};
-	return (
+    };
+    if(!users.length)   return <div className='flex justify-center'><h1 className='f5 f4-ns fw6 mid-gray'>No data Available</h1></div>
+    else return (
 		<div className='pa4'>
 			<table className='center w-100'>
 				<thead>
