@@ -24,7 +24,7 @@ function Search({ className, placeholder, style, setSearch }) {
 	const debouncedSave = debounce(handleSearch, 100);
 
 	return (
-		<div>
+		<div data-test='search'>
 			<input
 				name='search'
 				style={style}

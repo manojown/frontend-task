@@ -13,8 +13,8 @@ function Pagination({ count, page, offSet, setPagination }) {
 			.fill(0)
 			.map((_, index) => {
 				return (
-					<a
-						className={`dtc link dim  ${page == index ? "bg-blue white" : "black"} f6 f5-ns b pa3 br b--light-silver`}
+					<a key={index}
+						className={`dtc link dim  ${page === index ? "bg-blue white" : "black"} f6 f5-ns b pa3 br b--light-silver`}
 						title='1'
 						onClick={() => changePage(index)}>
 						{index + 1}
@@ -23,7 +23,7 @@ function Pagination({ count, page, offSet, setPagination }) {
 			});
 	};
 	return (
-		<div className='tc mw8 center'>
+		<div className='tc mw8 center' data-test='pagination'>
 			<div className='dib overflow-hidden ba br2 b--light-silver'>
 				<nav className='cf' data-name='pagination-numbers-bordered'>
 					<a
